@@ -4,9 +4,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
     selector: "appo",
     template: `
     <div>
-        alphaca
+      <p class="mb-2">Hello</p>  
      <p> {{childMessage}}</p>  
-    <button (click)="sendMessage()">click child</button>
+    <button (click)="sendMessage()" class="border p-1" >click child</button>
     </div>`,
     standalone: true,
 })

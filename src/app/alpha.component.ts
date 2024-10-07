@@ -4,8 +4,9 @@ import { Component, Input, OnChanges, Output, SimpleChanges } from '@angular/cor
     selector: "alpha",
     template: `
     <div>
+    <p class="mb-2">Alphaca</p>  
     <p> {{message}}</p>   
-    <button (click)="reSet()">Reset</button>
+    <button (click)="reSet()" class="border p-1" >Reset</button>
     </div>
     `,
       standalone: true,

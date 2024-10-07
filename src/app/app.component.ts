@@ -10,17 +10,22 @@ import { AlphaComp } from './alpha.component';
   standalone: true,
   imports: [RouterOutlet, HelloComponent, FormsModule, NgFor, AlphaComp],
   template: `
-  <input [(ngModel)]="name" />
-
+  <div class="p-2">
+  <input [(ngModel)]="name" class="border" placeholder="value input"/>
   <p>Value: {{ name }}</p>
-  <p *ngFor="let item of arr1">
+  <div class="py-2 border my-2">
+    <p *ngFor="let item of arr1">
   {{ item }}
-  </p>
+  </p>  
+  </div>
 
-  <button (click)="setValue()">Set value</button>
-  <button (click)="setArr()">Set value Arr</button>
-  <appo [childMessage]="name" (messageEvent)="handleMessage($event)"></appo>
-  <alpha [alphaMessage]="name"></alpha>
+  <button (click)="setValue()" class="border p-1" >Set value</button>
+  <button (click)="setArr()" class="border  p-1 ml-1" >Set value Arr</button>
+  <div class="grid grid-cols-2 gap-2">
+    <appo [childMessage]="name" (messageEvent)="handleMessage($event)"></appo>
+    <alpha [alphaMessage]="name"></alpha>
+  </div>
+  </div>
 `,
   styleUrl: './app.component.scss'
 })
