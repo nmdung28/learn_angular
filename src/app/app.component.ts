@@ -2,21 +2,25 @@ import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HelloComponent } from './hello/hello.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { AlphaComp } from './alpha.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HelloComponent, FormsModule, NgFor, AlphaComp],
+  imports: [RouterOutlet, HelloComponent, CommonModule,FormsModule, AlphaComp],
   template: `
   <div class="p-2">
   <input [(ngModel)]="name" class="border" placeholder="value input"/>
   <p>Value: {{ name }}</p>
   <div class="py-2 border my-2">
     <p *ngFor="let item of arr1">
-  {{ item }}
-  </p>  
+      @if (+item*100 %2 ===0){
+        <span>Chẵn  {{ item }}</span>
+      }@else {
+        <span>lẻ  {{ item }}</span>
+      }
+     </p>  
   </div>
 
   <button (click)="setValue()" class="border p-1" >Set value</button>
