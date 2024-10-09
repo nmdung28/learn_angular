@@ -5,6 +5,7 @@ import { RouterOutlet } from "@angular/router";
     imports: [RouterOutlet],
     selector: "appo",
     template: `
+        <router-outlet />
     <div>
       <p class="mb-2">Hello</p>  
      <p> {{childMessage}}</p>
@@ -13,7 +14,6 @@ import { RouterOutlet } from "@angular/router";
     </div>
     <a href="/">Home</a>
     <a href="/alpha">Nav to Alpha</a>
-    <router-outlet />
     `,
     standalone: true,
 })
