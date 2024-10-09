@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 import { RouterOutlet } from '@angular/router';
-import { Logger } from './logger.service';
+import { Logger } from '../../services/logger.service';
 
 @Component({
     imports: [RouterOutlet],

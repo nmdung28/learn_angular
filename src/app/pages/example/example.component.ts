@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { Logger } from "../logger.service";
+import { Logger } from "../../services/logger.service";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { RouterOutlet } from "@angular/router";
-import { AlphaComp } from "../alpha.component";
+import { AlphaComp } from "../alpha/alpha.component";
 import { HelloComponent } from "../hello/hello.component";
 @Component({
     imports: [RouterOutlet, HelloComponent, CommonModule,FormsModule, AlphaComp],

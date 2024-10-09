@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { ROUTES } from "../const/router";
+import { ROUTES } from "../../const/router";
 
 @Component({
     imports: [RouterOutlet],
