@@ -1,6 +1,6 @@
 import { inject, Injectable } from "@angular/core";
-import { AlphaComp } from "./alpha.component";
-import { AppComponent } from "./app.component";
+import { AlphaComp } from "../pages/alpha/alpha.component";
+import { AppComponent } from "../app.component";
 
 @Injectable({
     providedIn: AlphaComp
