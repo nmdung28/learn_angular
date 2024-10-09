@@ -4,6 +4,7 @@ import { HelloComponent } from './hello/hello.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { AlphaComp } from './alpha.component';
+import { Logger } from './logger.service';
 
 @Component({
   selector: 'app-root',
@@ -31,17 +32,20 @@ import { AlphaComp } from './alpha.component';
   </div>
   </div>
 `,
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  providers:[Logger]
 })
 export class AppComponent {
   name: string = '';
   valueInput: string = "";
-  arr1: any[] = []
+  arr1: any[] = [];
+  constructor( private logger:Logger){}
   setValue() {
     this.name = 'Nancy';
   }
   setArr() {
     this.arr1 = [...this.arr1, Math.random().toFixed(2)]
+    this.logger.error(this.arr1)
   }
   setValueInput(event: any) {
     console.log(event);

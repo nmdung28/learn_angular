@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 import { RouterOutlet } from '@angular/router';
+import { Logger } from './logger.service';
 
 @Component({
     imports: [RouterOutlet],
@@ -15,14 +16,13 @@ import { RouterOutlet } from '@angular/router';
             <a href="/hello">Nav to Hello</a>
     `,
       standalone: true,
+        providers:[Logger]
 })
 
 export class AlphaComp implements OnChanges {
     @Input() alphaMessage?: string;
     message?: string = this.alphaMessage;
-    constructor() {
-
-    }
+    constructor( private logger:Logger){}
     reSet() {
         this.message = "Reset default"
     }
