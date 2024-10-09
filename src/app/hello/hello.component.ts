@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+import { ROUTES } from "../const/router";
 
 @Component({
     imports: [RouterOutlet],
@@ -13,7 +14,7 @@ import { RouterOutlet } from "@angular/router";
     <button (click)="sendMessage()" class="border p-1" >click child</button>
     </div>
     <a href="/">Home</a>
-    <a href="/alpha">Nav to Alpha</a>
+    <a href={{linkPath}}>Nav to Alpha</a>
     `,
     standalone: true,
 })
@@ -21,6 +22,7 @@ import { RouterOutlet } from "@angular/router";
 export class HelloComponent implements OnInit {
     @Input() childMessage?: string;
     @Output() messageEvent = new EventEmitter<string>()
+    linkPath = ROUTES.alpha
     constructor() { }   
     ngOnInit() {
     }

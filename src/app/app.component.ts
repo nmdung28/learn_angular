@@ -53,7 +53,6 @@ export class AppComponent {
   }
   handleMessage(event: string) {
     console.log(event);
-
     this.name = event
   }
 }
