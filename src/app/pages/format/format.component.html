@@ -1,1 +1,6 @@
-<p>format works!</p>
+<ul>
+    <li>Number with "decimal" {{ num|number:"3.1-1" }}</li>
+    <li>Date with "date" {{ birthday | date: 'medium'  }}</li>
+    <li>Date with "date" {{ 0.12345 | percent:'1.2' }} </li>
+    <li>Currency with "currency" {{ cost }}</li>
+  </ul>
