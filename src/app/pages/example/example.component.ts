@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component ,DoCheck } from "@angular/core";
 import { Logger } from "../../services/logger.service";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -10,7 +10,8 @@ import { HelloComponent } from "../hello/hello.component";
     standalone:true,
     selector:"example",
     template:`<div class="p-2">
-    <input [(ngModel)]="name" class="border" placeholder="value input"/>
+      <p>Value: {{ name }}</p>
+    <!-- <input [(ngModel)]="name" class="border" placeholder="value input"/>
     <p>Value: {{ name }}</p>
     <div class="py-2 border my-2">
       <p *ngFor="let item of arr1">
@@ -23,17 +24,17 @@ import { HelloComponent } from "../hello/hello.component";
     </div>
   
     <button (click)="setValue()" class="border p-1" >Set value</button>
-    <button (click)="setArr()" class="border  p-1 ml-1" >Set value Arr</button>
+    <button (click)="setArr()" class="border  p-1 ml-1" >Set value Arr</button> -->
     <div class="grid grid-cols-2 gap-2">
-      <appo [childMessage]="name" (messageEvent)="handleMessage($event)"></appo>
-      <alpha [alphaMessage]="name"></alpha>
+      <appo [childMessage]="name" [sendMessage1]="handleMessage" (messageEvent)="handleMessage($event)"></appo>
+      <!-- <alpha [alphaMessage]="name"></alpha> -->
     </div>
     </div>`,
     providers:[Logger]
 })
 
 export class ExamplePage{
-    name: string = '';
+    name: string = '123';
   valueInput: string = "";
   arr1: any[] = [];
   constructor( private logger:Logger){}
@@ -51,5 +52,8 @@ export class ExamplePage{
   handleMessage(event: string) {
     console.log(event);
     this.name = event
+  }
+  ngDoCheck(){
+
   }
 }

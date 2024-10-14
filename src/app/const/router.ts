@@ -3,5 +3,7 @@ export const ROUTES ={
     hello:"hello",
     alpha:"alpha",
     example:"example",
-    format:"format"
+    format:"format",
+    blogs:"blogs",
+    blogsId:"blogs/:id"
 }

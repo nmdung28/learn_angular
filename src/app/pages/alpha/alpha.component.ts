@@ -10,6 +10,7 @@ import { Logger } from '../../services/logger.service';
             <div>
             <p class="mb-2">Alphaca</p>  
             <p> {{message}}</p>   
+            <p> alphaMessage{{alphaMessage}}</p>   
             <button (click)="reSet()" class="border p-1" >Reset</button>
             </div>
             <a href="/">Home</a>
@@ -22,9 +23,14 @@ import { Logger } from '../../services/logger.service';
 export class AlphaComp implements OnChanges {
     @Input() alphaMessage?: string;
     message?: string = this.alphaMessage;
-    constructor( private logger:Logger){}
+    // logger = new Logger()
+    constructor( private logger: Logger){
+        console.log(this.alphaMessage);
+        
+    }
     reSet() {
-        this.message = "Reset default"
+        this.message = "Reset default";
+        this.logger.error("aaaa");
     }
     ngOnChanges(changes: SimpleChanges): void {
         console.log("changes",changes);
