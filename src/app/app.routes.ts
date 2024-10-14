@@ -5,6 +5,8 @@ import { ExamplePage } from './pages/example/example.component';
 import { ROUTES } from './const/router';
 import { HomeComp } from './pages/home/home.component';
 import { FormatComponent } from './pages/format/format.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { BlogsDetailComponent } from './pages/blogs-detail/blogs-detail.component';
 
 export const routes: Routes = [
   {
@@ -27,5 +29,18 @@ export const routes: Routes = [
     path: ROUTES.format,
     component: FormatComponent,
   },
-
+  
+  {
+    path: ROUTES.blogs,
+    component: BlogsComponent,
+  },
+  {
+    path: ROUTES.blogsId,
+    component: BlogsDetailComponent,
+  },
+  {
+    path:"**",
+    redirectTo: ROUTES.home,
+    component:HomeComp
+  },
 ];
