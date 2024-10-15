@@ -7,6 +7,7 @@ import { HomeComp } from './pages/home/home.component';
 import { FormatComponent } from './pages/format/format.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BlogsDetailComponent } from './pages/blogs-detail/blogs-detail.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path: ROUTES.blogsId,
     component: BlogsDetailComponent,
+  },
+  {
+    path: ROUTES.categoriesId,
+    component: CategoriesComponent,
   },
   {
     path:"**",

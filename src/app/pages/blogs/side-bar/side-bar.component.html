@@ -1,0 +1,6 @@
+<div class="{{customStyle}} p-4">
+    <app-search (emitEvent)="onSearchChange($event)"></app-search>
+    <div *ngFor="let item of categories">
+      <app-categorie-item [item]="item" (emitClick)="handleClickCateItem($event)" [currentId]="activeCateId"/>
+    </div>
+</div>

@@ -5,5 +5,7 @@ export const ROUTES ={
     example:"example",
     format:"format",
     blogs:"blogs",
-    blogsId:"blogs/:id"
+    blogsId:"blogs/:id",
+    categories:"categories",
+    categoriesId:"categories/:id",
 }

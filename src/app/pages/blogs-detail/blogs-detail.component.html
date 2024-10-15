@@ -1,1 +1,33 @@
-<p>blogs-detail works!</p>
+<div class="grid grid-cols-[400px,1fr] gap-2 ">
+    <div class="relative py-8">
+        <app-side-bar [customStyle]="classSidebar" (emitSearchChange)="onSearchChange($event)" (emitClickCate)="onClickCate($event)"/>
+    </div>
+    <div class="overflow-y-auto pt-8" style="height: calc(100vh - 36px);">
+        <div class="py-2">
+            <p class="font-semibold text-2xl mb-2">
+                {{item?.title}}
+            </p>
+            <p class="py-1">{{item?.summary}}</p>
+        </div>
+
+        <div class="w-full relative overflow-hidden rounded">
+            <img alt="image" src={{item?.image}}
+                class="w-full h-full hover:scale-105 duration-300 ease-in-out cursor-pointer" />
+        </div>
+        <div class="py-2" [innerHTML]="item?.content"> </div>
+        <div class="flex justify-between items-center">
+            <p>{{item?.author}}</p>
+            <p>{{item?.time | timeAgo}}</p>
+        </div>
+        <p class="font-semibold text-xl">Add your comment now</p>
+        <textarea (input)="onChangeText($event)" class="w-full min-h-36 focus:outline-none p-2 border border-gray-300 rounded">
+        </textarea>
+        <button (click)="onSubmitText()" class="p-2 border rounded border-gray-300">Submit</button>
+        <div class="mt-10">
+            <div *ngFor="let comment of item?.comment">
+                <app-comment-item [item]="comment"/>
+            </div>
+        </div>
+        <app-footer />
+    </div>
+</div>
