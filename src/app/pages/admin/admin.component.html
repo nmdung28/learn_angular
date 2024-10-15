@@ -1,0 +1,53 @@
+<div style="min-height: calc(100vh - 74px);" class="p-10">
+    <p>
+        Create Post
+    </p>
+    <div class="grid grid-cols-2 gap-12">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="">
+            <div class="flex flex-col gap-2">
+                <input type="text" formControlName="title" name="title"
+                    class="p-1 px-2 rounded border focus:outline-none" placeholder="title" />
+                    @if (titleValid?.invalid &&titleValid?.hasError("minlength")) {
+                        <div  >titleValid? must be at least 4 characters long</div>
+                      }
+                     
+                <input type="text" formControlName="summary" name="summary"
+                    class="p-1 px-2 rounded border focus:outline-none" placeholder="summary" />
+                <input  formControlName="content" name="content"
+                    class="p-1 px-2 rounded border focus:outline-none" placeholder="content" />
+              
+                <div class="flex">
+                    <input type="file" formControlName="image" class="file-input" (change)="onUploadImage($event)"
+                        #fileUpload>
+                    <img [src]="imageSrc || './assets/defaultBlog.png'" class="h-32 w-fit" />
+                </div>
+                <div class="example-input">
+                    <input placeholder="categories" nz-input formControlName="categories" (input)="onInput($event)"
+                        [nzAutocomplete]="auto" class="p-1 px-2 rounded border focus:outline-none w-full" />
+                    <nz-autocomplete #auto>
+                        @for (option of options; track $index) {
+                        <nz-auto-option [nzValue]="option" [nzLabel]="option.label">{{ option.label }}</nz-auto-option>
+                        }
+                    </nz-autocomplete>
+                </div>
+                <input type="text" formControlName="author" name="author"
+                class="p-1 px-2 rounded border focus:outline-none" placeholder="author" />
+            </div>
+            <div class="flex gap-4 justify-between">
+                <button type="submit" [disabled]="!profileForm.valid"
+                class="p-1 px-4 mt-2 rounded border bg-green-700 text-white disabled:bg-gray-500 disabled:cursor-not-allowed">Save</button>
+            <button type="reset"   (click)="onReset()" [disabled]="!profileForm.valid"
+                class="p-1 px-4 mt-2 rounded border bg-red-600 text-white disabled:bg-gray-500 disabled:cursor-not-allowed">Cancel</button>
+            </div>
+           
+        </form>
+        <div>
+            <div *ngFor="let item of blogList"
+                class="flex justify-between items-center p-2 border-b cursor-pointer last:border-b-0 hover:bg-gray-50">
+                <p class="mb-0 capitalize" (click)="onEditBlog(item)"> {{item.title}}</p>
+                <img class="w-12 h-fit" src={{item.image}} />
+            </div>
+        </div>
+    </div>
+
+</div>

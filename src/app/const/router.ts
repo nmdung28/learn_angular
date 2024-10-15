@@ -8,4 +8,5 @@ export const ROUTES ={
     blogsId:"blogs/:id",
     categories:"categories",
     categoriesId:"categories/:id",
+    admin:"admin"
 }

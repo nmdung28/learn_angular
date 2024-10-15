@@ -16,5 +16,6 @@ export class HeaderComponent {
   linkPathFormat = ROUTES.format
   linkPathHello = ROUTES.hello
   linkPathBlogs=ROUTES.blogs
+  linkPathAdmin=ROUTES.admin
   constructor(){}
 }
