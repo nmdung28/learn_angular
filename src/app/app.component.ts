@@ -1,6 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { AlphaComp } from './pages/alpha/alpha.component';
 import { HelloComponent } from './pages/hello/hello.component';
@@ -11,7 +11,7 @@ import { ROUTES } from './const/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent, NgIf],
+  imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent, NgIf, ReactiveFormsModule],
   template: `
   <app-header/>
     <router-outlet />
@@ -19,7 +19,7 @@ import { ROUTES } from './const/router';
       <app-footer/>
     </div>
 
-`,
+`, 
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
