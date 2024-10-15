@@ -1,1 +1,9 @@
-<p>blogs works!</p>
+<div class="grid grid-cols-[400px,1fr] gap-2 py-8" style="min-height: calc(100vh - 74px);">
+    <app-side-bar (emitSearchChange)="onSearchChange($event)" (emitClickCate)="onClickCate($event)"/>
+    <div class="grid grid-cols-3 gap-2">
+        <div *ngFor="let item of blogItem" class="p-2">
+            <app-blog-item [item]="item"></app-blog-item>
+        </div>
+    </div>
+</div>
+<app-footer/>

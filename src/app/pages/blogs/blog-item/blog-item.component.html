@@ -1,0 +1,13 @@
+<a href="{{parentPage}}/{{item?.id}}">
+    <p class="text-lg font-medium mb-1 capitalize">{{item?.title}}</p>
+    <div class="w-full h-52 relative overflow-hidden rounded">
+        <img alt="image" src={{item?.image}}
+            class="w-full h-full hover:scale-110 duration-150 ease-in-out cursor-pointer" />
+    </div>
+    <categories_item_blog [id]="item?.categories"/>
+    <p class="py-1">{{item?.summary}}</p>
+    <div class="flex justify-between items-center">
+        <p>{{item?.author}}</p>
+        <p>{{item?.time | timeAgo}}</p>
+    </div>
+</a>
