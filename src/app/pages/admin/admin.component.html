@@ -1,6 +1,6 @@
 <div style="min-height: calc(100vh - 74px);" class="p-10">
     <p>
-        Create Post
+        {{isEditBlog?"Edit":"Create"}} Post
     </p>
     <div class="grid grid-cols-2 gap-12">
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="">

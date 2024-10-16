@@ -28,7 +28,7 @@ export class BlogsDetailComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-    });
+    });                                                             
     this.item = BlogItems.find(x => x.id === this.id)
   }
   onSearchChange(event: string) {
