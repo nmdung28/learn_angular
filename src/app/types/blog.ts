@@ -5,7 +5,7 @@ export interface IBlogItem{
     image?:any,
     comment?:IComment[],
     author?:string,
-    time:Date,
+    time?:Date,
     categories?:string,
     content?:string
 }

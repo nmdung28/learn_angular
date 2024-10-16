@@ -7,11 +7,15 @@ import { HelloComponent } from './pages/hello/hello.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ROUTES } from './const/router';
+import { StoreModule } from '@ngrx/store';
+import { blogReducer } from './store/reducer';
+import { MiddleModule } from './middle_module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent, NgIf, ReactiveFormsModule],
+  imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent, NgIf, ReactiveFormsModule,
+  ],
   template: `
   <app-header/>
     <router-outlet />
@@ -19,7 +23,7 @@ import { ROUTES } from './const/router';
       <app-footer/>
     </div>
 
-`, 
+`,
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
@@ -30,7 +34,6 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     const isBlogDetail = this.router.url.includes(ROUTES.blogs + "/")
-    console.log(isBlogDetail, ROUTES.blogs + "/", this.router.routerState);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         console.log("event.url", event.url.includes(ROUTES.blogs + "/"));
